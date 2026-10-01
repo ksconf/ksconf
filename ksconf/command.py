@@ -536,7 +536,8 @@ def add_splunkd_access_args(parser: ArgumentParser) -> ArgumentParser:
 def add_splunkd_namespace(parser: ArgumentParser) -> ArgumentParser:
     parser.add_argument("--app", default="search",
                         help="Set the namespace (app name) for the endpoint. "
-                        "Default %(default)s")
+                        "Use 'system' (with the default owner of 'nobody') to target "
+                        "system/local.  Default %(default)s")
     parser.add_argument("--owner", default="nobody",
                         help="Set the user who owns the content.  "
                              "The default of 'nobody' works well for app-level sharing.")

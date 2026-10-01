@@ -23,6 +23,14 @@ Renames:
 - ``ksconf/commands/__init__.py`` -> ``ksconf/command.py``
 
 
+Ksconf v0.13.11 (DRAFT)
+~~~~~~~~~~~~~~~~~~~~~~~
+*  :ref:`ksconf_cmd_rest-publish`: Add ``--force-namespace`` to write stanzas to the namespace given by ``--app`` and ``--owner``, even when a matching stanza already exists elsewhere (for example, to write to ``system/local``).
+*  :ref:`ksconf_cmd_rest-publish`: Fix handling of stanza attributes named ``app``, ``owner``, ``sharing``, or ``headers``.
+   Previously, the Splunk SDK mistook these for its own function arguments, which caused errors or misrouted requests.
+*  Docs: Clarify that ``rest-publish`` can write to ``system/local`` by using ``--app system`` and ``--owner nobody``.
+
+
 Ksconf v0.13.10 (2025-03-11)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *  Add ``extra_args`` field for :py:func:`~ksconf.builder.steps.pip_install` to allow a command line pass-thru for special use cases.

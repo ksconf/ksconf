@@ -30,6 +30,11 @@ from ksconf.util.completers import conf_files_completer
 # Lazy loaded by _handle_imports()
 splunklib = None
 
+# Stanza attributes with these names can't be passed to splunklib as keyword arguments because
+# they're interpreted as function parameters (e.g., Context.post(owner=, app=, sharing=, headers=))
+# rather than as data.  These must be sent using the 'body' argument instead.
+SPLUNKLIB_RESERVED_ATTRS = frozenset(["owner", "app", "sharing", "headers", "path_segment"])
+
 
 class RestPublishCmd(KsconfCmd):
     help = "Publish .conf settings to a live Splunk instance via REST"
@@ -59,6 +64,7 @@ class RestPublishCmd(KsconfCmd):
         super().__init__(*args, **kwargs)
         self._service = None
         self.meta: Optional[MetaData] = None
+        self.force_namespace = False
 
     @classmethod
     def _handle_imports(cls):
@@ -90,6 +96,17 @@ class RestPublishCmd(KsconfCmd):
 
         add_splunkd_namespace(parser)
         add_splunkd_access_args(parser)
+
+        parser.add_argument("--force-namespace", action="store_true", default=False,
+                            help=dedent("""\
+            Force updates to be written to the namespace given by ``--app`` and ``--owner``.
+            By default, when a matching stanza already exists (for example, one shared globally by
+            another app), updates are applied within the namespace where that stanza was found.
+            Use this to write a stanza into a different location, like ``system/local``
+            (``--app system --owner nobody``).
+            Note that the existing stanza is left in place.  Splunk skips writing settings whose
+            value already matches the value in effect, so only changed settings are written to the
+            new namespace.  Also, repeat runs may report an update."""))
 
         parsg1 = parser.add_mutually_exclusive_group(required=False)
         '''
@@ -196,6 +213,29 @@ class RestPublishCmd(KsconfCmd):
             if "acl_delta" in info:
                 show_diff(self.stdout, info["acl_delta"])
 
+    def namespace_differs(self, stz) -> bool:
+        """ Return True when --force-namespace is given and the existing stanza lives in a different
+        app/owner than requested.  The settings may be identical, but a write is still needed to
+        create the copy in the requested namespace.
+        """
+        if not self.force_namespace:
+            return False
+        access = stz.access
+        return access["app"] != self._service.namespace.app \
+            or access["owner"] != self._service.namespace.owner
+
+    def update_namespace(self) -> Dict[str, str]:
+        """ Extra arguments for ``Entity.update()`` to select where the write happens.
+
+        By default, REST updates are applied in the namespace where the existing stanza was found,
+        which is not necessarily the requested ``--app``/``--owner`` (e.g., a globally shared
+        stanza from another app).  With --force-namespace, write to the requested namespace instead.
+        """
+        if not self.force_namespace:
+            return {}
+        ns = self._service.namespace
+        return {"owner": ns.owner, "app": ns.app, "sharing": ns.sharing}
+
     def publish_conf(self,
                      stanza_name: str,
                      stanza_data: ConfType,
@@ -244,17 +284,24 @@ class RestPublishCmd(KsconfCmd):
             data = reduce_stanza(stz_data, stanza_data)
             # print(f"VALUE NOW:   (FILTERED TO OUR ATTRS)   {data}")
             delta = res["delta"] = compare_stanzas(stanza_data, data, stanza_name)
-            if is_equal(delta):
+            if is_equal(delta) and not self.namespace_differs(stz):
                 # print("NO CHANGE NEEDED.")
                 res["delta"] = []
                 action = "nochange"
             else:
-                stz.update(**stanza_data)
+                # Send attributes as 'body' to avoid splunklib mistaking attributes named 'app',
+                # 'owner', 'sharing', etc. for function arguments.
+                stz.post(**self.update_namespace(), body=stanza_data)
                 # Any need to call .refresh() here to grab the state from the server?
                 action = "update"
         else:
             # print(f"Stanza {stanza_name} new -- publishing!")
-            stz = config_file.create(stanza_name, owner=owner, app=app, sharing=sharing, **stanza_data)
+            safe_attrs = {k: v for k, v in stanza_data.items() if k not in SPLUNKLIB_RESERVED_ATTRS}
+            unsafe_attrs = {k: v for k, v in stanza_data.items() if k in SPLUNKLIB_RESERVED_ATTRS}
+            stz = config_file.create(stanza_name, owner=owner, app=app, sharing=sharing, **safe_attrs)
+            if unsafe_attrs:
+                # See notes above; these can't be given as keyword arguments to create()
+                stz.post(body=unsafe_attrs)
             res["delta"] = compare_stanzas({}, stanza_data, stanza_name)
             res["path"] = stz.path
             action = "new"
@@ -363,6 +410,7 @@ class RestPublishCmd(KsconfCmd):
             return ("nochange", res)
 
     def run(self, args: Namespace):
+        self.force_namespace = args.force_namespace
         if args.meta:
             self.meta = MetaData()
             for meta_file in args.meta:
