@@ -46,13 +46,14 @@ class RestPublishCmd(KsconfCmd):
     This can be used to push full configuration stanzas where you only have REST access and can't
     directly publish an app.
 
-    Only attributes present in the conf file are pushed.  While this may seem obvious, this fact can
-    have profound implications in certain situations, like when using this command for continuous
-    updates.  This means that it's possible for the source .conf to ultimately differ from what ends
-    up on the server's .conf file.  One way to avoid this, is to explicitly remove an object using
-    ``--delete`` mode first, and then insert a new copy of the object.  Of course, this means that
-    the object will be unavailable.  The other impact is that diffs only compares and shows a subset
-    of attribute.
+    Only attributes present in the conf file are pushed.  While this may seem obvious, it can have
+    profound implications in certain situations, like continuous updates.  The source .conf can
+    ultimately differ from what ends up in the server's .conf file.  One way to avoid this is to
+    remove the object using ``--delete`` mode first, and then insert a new copy.  Of course, this
+    means the object will be unavailable temporarily.  Also, this approach doesn't work for all
+    objects.  There's also no means of individually removing an existing attribute once set.
+
+    Another impact is that diffs only compare and show the subset of attributes in the conf file.
 
     Be aware, that for consistency, the configs/conf-TYPE endpoint is used for this command.
     Therefore, a reload may be required for the server to use the published config settings.
