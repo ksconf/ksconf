@@ -27,7 +27,7 @@ setup(
     ],
     keywords='ksconf splunk jinja markdown',
     author="Lowell Alleman",
-    author_email="lowell.alleman@cdillc.com",
-    url="https://github.com/Kintyre/ksconf/tree/devel/plugins/jinja-markdown",
+    author_email="lowell@securecoder.com",
+    url="https://github.com/ksconf/ksconf/tree/devel/plugins/jinja-markdown",
     zip_safe=False
 )

@@ -3,7 +3,7 @@
 
 KSCONF is a command-line tool that helps administrators and developers manage their Splunk environments by enhancing control of their configuration files.  The interface is modular so that each function (or subcommand) can be learned quickly and used independently.  While most users will probably only use a subset of the total capabilities of this tool, it’s reassuring to have a comprehensive toolbox of powerful assets ready to be utilized at a moment's notice.  Ksconf works with, rather than replace, your existing Splunk deployment mechanisms and version control tools.
 
-KSCONF is open source and an open development effort.  Check us out on [GitHub](https://github.com/Kintyre/ksconf#kintyres-splunk-configuration-tool)
+KSCONF is open source and an open development effort.  Check us out on [GitHub](https://github.com/ksconf/ksconf#ksconf-splunk-configuration-tool)
 
 Pronounced:   k·s·kȯnf
 
@@ -41,14 +41,14 @@ Full documentation for ksconf, including this app, is hosted at read-the-docs.  
 
 ## Need help?
 
- * [Ask questions](https://github.com/Kintyre/ksconf/issues/new?labels=question)
+ * [Ask questions](https://github.com/ksconf/ksconf/issues/new?labels=question)
  * Chat about [#ksconf](https://slack.com/app_redirect?channel=CDVT14KUN) on the Splunk User group [Slack](https://splunk-usergroups.slack.com) channel
 
 ## Get Involved
 
- * [Report bugs](https://github.com/Kintyre/ksconf/issues/new?template=bug.md)
- * Review [known bugs](https://github.com/Kintyre/ksconf/labels/bug)
- * [Request new features](https://github.com/Kintyre/ksconf/issues/new?template=feature-request.md&labels=enhancement)
+ * [Report bugs](https://github.com/ksconf/ksconf/issues/new?template=bug.md)
+ * Review [known bugs](https://github.com/ksconf/ksconf/labels/bug)
+ * [Request new features](https://github.com/ksconf/ksconf/issues/new?template=feature-request.md&labels=enhancement)
  * [Contribute code](https://ksconf.readthedocs.io/en/latest/devel.html#contributing)
 
 ## Roadmap
@@ -66,7 +66,7 @@ See the [Install an add-on](https://docs.splunk.com/Documentation/AddOns/release
 ## Support
 
 Community support is available on best-effort basis.  For information about commercial support, contact [Kintyre](mailto:hello@kintyre.co)
-Issues are tracked via [GitHub](https://github.com/Kintyre/ksconf/issues)
+Issues are tracked via [GitHub](https://github.com/ksconf/ksconf/issues)
 
 ## History
 See the full [Change log](https://ksconf.readthedocs.io/en/latest/changelog.html)

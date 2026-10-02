@@ -185,7 +185,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.PRE_COMMIT_PAT }}
-          repository: Kintyre/ksconf-pre-commit
+          repository: ksconf/ksconf-pre-commit
           event-type: bumpversion-event
           client-payload: >
             {"ref": "${{ github.ref }}",

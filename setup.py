@@ -137,7 +137,7 @@ Please see the [Official docs](https://ksconf.readthedocs.io/en/latest/) for mor
 
 install_requires = [req for req in open("requirements.txt") if req and not req[0] == "#"]
 
-# Temporary hack.  Remove in v0.13 and migrate to kintyre/ksconf-pre-commit
+# Temporary hack.  Remove in v0.13 and migrate to ksconf/ksconf-pre-commit
 if PRE_COMMIT:
     print("Build from within pre-commit detected.  "
           "Please switch to using the ksconf-pre-commit repo instead!")
@@ -170,8 +170,8 @@ setup(name=package_name,
       license="Apache Software License",
       keywords='ksconf splunk kinytre conf tool',
       author="Lowell Alleman",
-      author_email="lowell@kintyre.co",
-      url="https://github.com/Kintyre/ksconf",
+      author_email="lowell@securecoders.com",
+      url="https://github.com/ksconf/ksconf",
       project_urls={
           "Documentation": "https://ksconf.readthedocs.io/",
           "Splunk app": "https://splunkbase.splunk.com/app/4383/",

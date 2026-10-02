@@ -113,7 +113,7 @@ Vagrant.configure("2") do |config|
 
 
     # Checkout the 'ksconf' project locally
-    git clone https://github.com/Kintyre/ksconf.git
+    git clone https://github.com/ksconf/ksconf.git
 
     echo
     echo "Install complete."

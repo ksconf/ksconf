@@ -1,6 +1,6 @@
 # Ksconf Splunk CONFiguration tool
 
-[![Build](https://github.com/Kintyre/ksconf/actions/workflows/build.yml/badge.svg)](https://github.com/Kintyre/ksconf/actions/workflows/build.yml)
+[![Build](https://github.com/ksconf/ksconf/actions/workflows/build.yml/badge.svg)](https://github.com/ksconf/ksconf/actions/workflows/build.yml)
 [![PyPI](https://img.shields.io/pypi/v/ksconf.svg)](https://pypi.org/project/ksconf/)
 [![codecov](https://codecov.io/gh/Kintyre/ksconf/branch/master/graph/badge.svg)](https://codecov.io/gh/Kintyre/ksconf)
 [![Coverage Status](https://coveralls.io/repos/github/Kintyre/ksconf/badge.svg?branch=master)](https://coveralls.io/github/Kintyre/ksconf?branch=master)
@@ -48,15 +48,15 @@ Docs:
 
 Need help?
 
- * Ask questions on [GitHub](https://github.com/Kintyre/ksconf/issues/new?labels=question) or [Splunk Answers](https://answers.splunk.com/app/questions/4383.html)
+ * Ask questions on [GitHub](https://github.com/ksconf/ksconf/issues/new?labels=question) or [Splunk Answers](https://answers.splunk.com/app/questions/4383.html)
  * Chat about [#ksconf](https://slack.com/app_redirect?channel=CDVT14KUN) on Splunk's [Slack](https://splunk-usergroups.slack.com) channel
 
 
 Get involved:
 
- * [Report bugs](https://github.com/Kintyre/ksconf/issues/new?template=bug.md)
- * Review [known bugs](https://github.com/Kintyre/ksconf/labels/bug)
- * [Request new features](https://github.com/Kintyre/ksconf/issues/new?template=feature-request.md&labels=enhancement)
+ * [Report bugs](https://github.com/ksconf/ksconf/issues/new?template=bug.md)
+ * Review [known bugs](https://github.com/ksconf/ksconf/labels/bug)
+ * [Request new features](https://github.com/ksconf/ksconf/issues/new?template=feature-request.md&labels=enhancement)
  * [Contribute code](./docs/source/devel.md)
 
 

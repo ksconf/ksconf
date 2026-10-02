@@ -25,6 +25,10 @@ Renames:
 
 Ksconf v0.13.11 (DRAFT)
 ~~~~~~~~~~~~~~~~~~~~~~~
+*  **The ksconf project moved to a new GitHub location**:  ``github.com/Kintyre/ksconf`` is now https://github.com/ksconf/ksconf.
+   The :ref:`ksconf-pre-commit <ksconf_pre_commit>` hooks repo moved the same way, to https://github.com/ksconf/ksconf-pre-commit.
+   GitHub redirects the old URLs, so existing links, clones, and ``.pre-commit-config.yaml`` files keep working, but please update them when convenient.
+   All URLs in the docs, packaging metadata, and the Splunk app were updated to the new location.
 *  :ref:`ksconf_cmd_rest-publish`: Add ``--force-namespace`` to write stanzas to the namespace given by ``--app`` and ``--owner``, even when a matching stanza already exists elsewhere (for example, to write to ``system/local``).
 *  :ref:`ksconf_cmd_rest-publish`: Fix handling of stanza attributes named ``app``, ``owner``, ``sharing``, or ``headers``.
    Previously, the Splunk SDK mistook these for its own function arguments, which caused errors or misrouted requests.
@@ -393,7 +397,7 @@ Bug fixes:
    The contradictory output messages have been cleaned up.
    For clarity, this only occurred for inline replacement mode, and was purely a reporting issue, not a file handling problem.
 *  Fixed compatibility issues with ``rest-publish`` command and the splunk-sdk library around data type expectations.
-   A big thanks to bayeslearner (`#95 <https://github.com/Kintyre/ksconf/issues/95>`__) for the fix.
+   A big thanks to bayeslearner (`#95 <https://github.com/ksconf/ksconf/issues/95>`__) for the fix.
    If you run into any issues, try upgrading your version of ``splunk-sdk``.
 
 
@@ -445,7 +449,7 @@ Features & Enhancements:
    Similarly the new ``--disable-cleanup`` option will prevent any files from being removed.
    This is useful, for example if using ``ksconf combine`` to write apps into ``deployment-apps`` where Splunk automatically creates a local ``app.conf`` file, and the deletion and recreation of the file can result in unnecessary app re-deployments.
    These new options can be used together; for example, one useful pattern is to use ``--disable-cleanup`` to block all removals while perfecting/testing ``--keep-existing`` patterns.
--  Add support for previewing stanza changes with ``ksconf promote`` by combining ``--stanza X`` and ``--summary`` options at the same time.  Thanks to guilhemmarchand for the suggestion. (`#89 <https://github.com/Kintyre/ksconf/issues/89>`__)
+-  Add support for previewing stanza changes with ``ksconf promote`` by combining ``--stanza X`` and ``--summary`` options at the same time.  Thanks to guilhemmarchand for the suggestion. (`#89 <https://github.com/ksconf/ksconf/issues/89>`__)
 -  New CLI args for ``ksconf diff``.
    (1) New ``--detail`` option to specify how to handle certain 'replace' levels which impacts the way certain changes are represented.
    (2) New ``--format json`` for a more parsable output format.
@@ -457,7 +461,7 @@ Bug fixes:
 -  Fixed layer detection bugs for ``dir.d`` mode for layers.   (1) Layers that weren't immediately under the source directory were not detected, and
    (2) layers existing beyond a symlink were not detected.
    This change targeted for ``ksconf combine`` but may fix other similar issues.
--  Fixed `#91 <https://github.com/Kintyre/ksconf/issues/91>`__. where ``ksconf diff`` wouldn't correctly handle empty stanzas in the second input file
+-  Fixed `#91 <https://github.com/ksconf/ksconf/issues/91>`__. where ``ksconf diff`` wouldn't correctly handle empty stanzas in the second input file
    (Reversing the order would sometimes worked to avoid the issue).
    This was resolved by enabling some improved empty stanza handling in the conf comparison algorithms that were updated back in 0.7.10, but never globally applied.  This has been resolved.
 
@@ -483,7 +487,7 @@ Ksconf 0.8
 
 ..  note::
 
-   Come chat about ksconf on `GitHub discussions <https://github.com/Kintyre/ksconf/discussions>`__ even if it's to say we should use some other forum to stay in touch.
+   Come chat about ksconf on `GitHub discussions <https://github.com/ksconf/ksconf/discussions>`__ even if it's to say we should use some other forum to stay in touch.
 
 **What's new:**
 
@@ -595,7 +599,7 @@ In addition to the 0.8 summary above, 0.8.0 specifically includes the following 
 -  New cheatsheet example:  Using ``ksconf package`` and ``splunk install app`` together.
 -  Updated the combine behavior to optimize for the situation where there is only a single conf input file provided.
    This behavior leaves any ``.conf`` or ``.meta`` file untouched so there's no sorting/normalizing or banner.
-   See `#64 <https://github.com/Kintyre/ksconf/issues/64>`__.
+   See `#64 <https://github.com/ksconf/ksconf/issues/64>`__.
 -  Eliminated an "unknown command" error when one of the ksconf python modules has a SyntaxError.
    The new behavior isn't perfect (you may still see "unrecognized arguments"), but overall it's still a step in the right direction.
 
@@ -709,7 +713,7 @@ Release v0.7.1 (2019-03-13)
 -   Add the ``ignore-missing`` argument to :ref:`ksconf_cmd_merge` to prevent errors when input files are absent.
     This allows bashisms ``Some_App/{{default,local}}/savedsearches.conf`` to work without errors if the local or default file is missing.
 -   Check for incorrect environment setup and suggest running sourcing :file:`setSplunkEnv` to get a working environment.
-    See `#48 <https://github.com/Kintyre/ksconf/issues/48>`__ for more info.
+    See `#48 <https://github.com/ksconf/ksconf/issues/48>`__ for more info.
 -   Minor improvements to some internal error handling, packaging, docs, and troubleshooting code.
 
 Release v0.7.0 (2019-02-27)

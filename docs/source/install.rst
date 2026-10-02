@@ -143,7 +143,7 @@ to switch between a PyPI install, and a local install.)
 
 .. code-block:: sh
 
-   git clone https://github.com/Kintyre/ksconf.git
+   git clone https://github.com/ksconf/ksconf.git
    cd ksconf
    pip install .
 

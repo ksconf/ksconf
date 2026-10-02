@@ -74,7 +74,7 @@ class XmlFormatCmd(KsconfCmd):
 
         ..  code-block:: yaml
 
-            - repo: https://github.com/Kintyre/ksconf
+            - repo: https://github.com/ksconf/ksconf
             rev: v0.11.8
             hooks:
                 - id: ksconf-check
@@ -103,7 +103,7 @@ class XmlFormatCmd(KsconfCmd):
              "The ksconf pre-commit hooks have been moved to a new repo.  "
              "This configuration will stop working after v0.13.0 "
              "Please update '.pre-commit-config.yaml' to use the new "
-             "repo: https://github.com/Kintyre/ksconf-pre-commit.git")
+             "repo: https://github.com/ksconf/ksconf-pre-commit.git")
 
     def run(self, args):
         self.pre_commit_repo_migration_warning(args)

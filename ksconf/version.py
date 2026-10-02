@@ -4,7 +4,7 @@
 
 from __future__ import absolute_import, unicode_literals
 
-__author__ = "Lowell Alleman <lowell@kintyre.co>"
+__author__ = "Lowell Alleman <lowell@securecoders.com>"
 __copyright__ = "(c) 2019 Kintyre Solutions, Inc"
 __license__ = "Apache Public License v2"
 

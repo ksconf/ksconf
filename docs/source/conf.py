@@ -205,7 +205,7 @@ linkcheck_ignore = [
 
 
 linkcheck_allowed_redirects = {
-    r'https://github\.com/Kintyre/ksconf/issues/new.*':
+    r'https://github\.com/ksconf/ksconf/issues/new.*':
         r'https://github.com/login.*',
     r'https://stackoverflow.com/a/\d+/\d+':
         r'https://stackoverflow.com/questions/\d+/.*',

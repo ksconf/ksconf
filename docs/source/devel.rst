@@ -13,7 +13,7 @@ not to commit it.)
 
 ..  code-block:: sh
 
-    git clone https://github.com/Kintyre/ksconf.git
+    git clone https://github.com/ksconf/ksconf.git
     cd ksconf
 
     # Setup and activate virtual environment
@@ -31,7 +31,7 @@ Install ksconf
 
 ..  code-block:: sh
 
-    git clone https://github.com/Kintyre/ksconf.git
+    git clone https://github.com/ksconf/ksconf.git
     cd ksconf
     pip install .
 

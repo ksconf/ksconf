@@ -2,7 +2,7 @@
 #
 # Please update your '.pre-commit-config.yaml' files.
 # The new purpose-built repository is located here:
-# https://github.com/Kintyre/ksconf-pre-commit
+# https://github.com/ksconf/ksconf-pre-commit
 #
 # Support for running pre-commit directly against *this* repository will continue
 # to through 2024, but will be subject to increasingly aggressive reminders ;-)

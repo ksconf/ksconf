@@ -114,11 +114,11 @@ The following example assume we're make a new command called ``asciiart``:
 
 ..  code-block:: sh
 
-    git clone https://github.com/Kintyre/ksconf.git
+    git clone https://github.com/ksconf/ksconf.git
     cd ksconf
 
     # Kick off a cookiecutter  (promt submodule: asciiart)
-    cookiecutter https://github.com/Kintyre/ksconf.git -c cookiecutter-subcommand
+    cookiecutter https://github.com/ksconf/ksconf.git -c cookiecutter-subcommand
 
     cp ksconf-asciiart/* .
 

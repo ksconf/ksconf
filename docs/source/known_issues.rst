@@ -18,5 +18,5 @@ Splunk app
     The fix in 0.7.0 is to remove the version-specific portion of the folder name.  (GH issue #37)
 
 
-See more `confirmed bugs <https://github.com/Kintyre/ksconf/labels/bug>`__
+See more `confirmed bugs <https://github.com/ksconf/ksconf/labels/bug>`__
 in the issue tracker.

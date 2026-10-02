@@ -61,6 +61,6 @@ RUN python -m pip install wheel \
     && python -m pip install tox \
     && ~/.pyenv/bin/pyenv rehash
 
-RUN git clone https://github.com/Kintyre/ksconf.git
+RUN git clone https://github.com/ksconf/ksconf.git
 
 RUN bash
