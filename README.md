@@ -5,11 +5,10 @@
 [![codecov](https://codecov.io/gh/Kintyre/ksconf/branch/master/graph/badge.svg)](https://codecov.io/gh/Kintyre/ksconf)
 [![Coverage Status](https://coveralls.io/repos/github/Kintyre/ksconf/badge.svg?branch=master)](https://coveralls.io/github/Kintyre/ksconf?branch=master)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/rlbgstkpf17y8nxh/branch/master?svg=true)](https://ci.appveyor.com/project/lowell80/ksconf/branch/master)
-[![Documentation Status](https://readthedocs.org/projects/ksconf/badge/?version=latest)](https://ksconf.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://app.readthedocs.org/projects/ksconf/badge/?version=latest)](https://ksconf.readthedocs.io/en/latest/?badge=latest)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ksconf.svg)](https://pypi.org/project/ksconf/)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/ksconf.svg)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-[![Snyk Score](https://snyk.io/advisor/python/ksconf/badge.svg)](https://snyk.io/advisor/python/ksconf)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 
 
