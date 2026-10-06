@@ -78,9 +78,13 @@ Plan: remove it some time **after at least one release from the new repo**.
 
 These can't be changed from a commit.
 
-- [ ] **`PRE_COMMIT_PAT` secret.** The release workflow dispatches `bumpversion-event` to `ksconf/ksconf-pre-commit`.
-      Confirm the token has access to the repo in the new organization (secrets may not carry over with a transfer).
+- [x] **`PRE_COMMIT_PAT` secret.** The release workflow dispatches `bumpversion-event` to `ksconf/ksconf-pre-commit`.
+      Regenerated on 2026-10-05 as the fine-grained token `ksconf-pre-commit-push`, **expires 2027-10-06**.
+      Renew it before then, or the automatic version bump in the hooks repo will silently stop (this is likely what happened after v0.13.9).
+      The new token has not been exercised yet; confirm that an "Update to ksconf X" commit appears in `ksconf-pre-commit` after the next tagged release.
+- [x] `ksconf-pre-commit`: `new_release.yml` now requests `contents: write` (the org's default workflow token is read-only), and `v0.13.10` was bumped manually via a `bumpversion-event`.
 - [ ] **Release workflow secrets in general.** Check the PyPI publish credentials and any other secrets exist in `ksconf/ksconf`.
+      `KSCONF_PYPI_TOKEN` and `PYPI_PASSWORD` were last updated about 4 years ago and `CODECOV_TOKEN` about 3 years ago, so verify they still work.
 - [ ] **CodeCov and Coveralls.** Add the repo under the new organization, then update the badges in `README.md`.
 - [ ] **Read the Docs.** Confirm the project's repository URL and webhook point at `ksconf/ksconf`.
 - [ ] **Splunkbase listing** (app 4383). Update the source/support links.
